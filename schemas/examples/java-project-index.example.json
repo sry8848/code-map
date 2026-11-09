@@ -1,0 +1,877 @@
+{
+  "schemaVersion": "0.1.0",
+  "project": {
+    "id": "project:orders-demo",
+    "name": "orders-demo",
+    "revision": null,
+    "sourceSnapshotHash": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+    "analysisEnvironmentHash": "sha256:1111111111111111111111111111111111111111111111111111111111111111",
+    "generatedAt": "2026-11-09T03:00:00Z",
+    "analyzers": [
+      {
+        "id": "jdk-javac",
+        "version": "21",
+        "language": "java",
+        "configHash": "sha256:2222222222222222222222222222222222222222222222222222222222222222"
+      }
+    ]
+  },
+  "modules": [
+    {
+      "id": "module:.",
+      "name": "orders-demo",
+      "path": ".",
+      "buildSystem": "maven",
+      "parentModuleId": null,
+      "sourceRoots": [
+        "src/main/java"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "id": "file:src/main/java/demo/api/OrderController.java",
+      "path": "src/main/java/demo/api/OrderController.java",
+      "language": "java",
+      "contentHash": "sha256:3333333333333333333333333333333333333333333333333333333333333333",
+      "moduleId": "module:.",
+      "isGenerated": false
+    },
+    {
+      "id": "file:src/main/java/demo/service/OrderService.java",
+      "path": "src/main/java/demo/service/OrderService.java",
+      "language": "java",
+      "contentHash": "sha256:4444444444444444444444444444444444444444444444444444444444444444",
+      "moduleId": "module:.",
+      "isGenerated": false
+    },
+    {
+      "id": "file:src/main/java/demo/payment/PaymentService.java",
+      "path": "src/main/java/demo/payment/PaymentService.java",
+      "language": "java",
+      "contentHash": "sha256:5555555555555555555555555555555555555555555555555555555555555555",
+      "moduleId": "module:.",
+      "isGenerated": false
+    },
+    {
+      "id": "file:src/main/java/demo/payment/WechatPaymentService.java",
+      "path": "src/main/java/demo/payment/WechatPaymentService.java",
+      "language": "java",
+      "contentHash": "sha256:6666666666666666666666666666666666666666666666666666666666666666",
+      "moduleId": "module:.",
+      "isGenerated": false
+    },
+    {
+      "id": "file:src/main/java/demo/payment/AlipayPaymentService.java",
+      "path": "src/main/java/demo/payment/AlipayPaymentService.java",
+      "language": "java",
+      "contentHash": "sha256:7777777777777777777777777777777777777777777777777777777777777777",
+      "moduleId": "module:.",
+      "isGenerated": false
+    },
+    {
+      "id": "file:src/main/java/demo/repo/OrderRepository.java",
+      "path": "src/main/java/demo/repo/OrderRepository.java",
+      "language": "java",
+      "contentHash": "sha256:8888888888888888888888888888888888888888888888888888888888888888",
+      "moduleId": "module:.",
+      "isGenerated": false
+    },
+    {
+      "id": "file:src/main/java/demo/repo/JdbcOrderRepository.java",
+      "path": "src/main/java/demo/repo/JdbcOrderRepository.java",
+      "language": "java",
+      "contentHash": "sha256:9999999999999999999999999999999999999999999999999999999999999999",
+      "moduleId": "module:.",
+      "isGenerated": false
+    }
+  ],
+  "symbols": [
+    {
+      "id": "java:demo.api.OrderController",
+      "language": "java",
+      "kind": "class",
+      "name": "OrderController",
+      "qualifiedName": "demo.api.OrderController",
+      "fileId": "file:src/main/java/demo/api/OrderController.java",
+      "containerSymbolId": null,
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 0
+        },
+        "end": {
+          "line": 8,
+          "character": 1
+        }
+      },
+      "selectionRange": {
+        "start": {
+          "line": 0,
+          "character": 4
+        },
+        "end": {
+          "line": 0,
+          "character": 19
+        }
+      },
+      "modifiers": [
+        "public"
+      ]
+    },
+    {
+      "id": "java:demo.api.OrderController#submit(int)",
+      "language": "java",
+      "kind": "method",
+      "name": "submit",
+      "qualifiedName": "demo.api.OrderController.submit",
+      "signature": "submit(int)",
+      "fileId": "file:src/main/java/demo/api/OrderController.java",
+      "containerSymbolId": "java:demo.api.OrderController",
+      "range": {
+        "start": {
+          "line": 3,
+          "character": 0
+        },
+        "end": {
+          "line": 6,
+          "character": 1
+        }
+      },
+      "selectionRange": {
+        "start": {
+          "line": 3,
+          "character": 4
+        },
+        "end": {
+          "line": 3,
+          "character": 10
+        }
+      },
+      "bodyRange": {
+        "start": {
+          "line": 4,
+          "character": 0
+        },
+        "end": {
+          "line": 5,
+          "character": 1
+        }
+      },
+      "modifiers": [
+        "public"
+      ]
+    },
+    {
+      "id": "java:demo.service.OrderService",
+      "language": "java",
+      "kind": "class",
+      "name": "OrderService",
+      "qualifiedName": "demo.service.OrderService",
+      "fileId": "file:src/main/java/demo/service/OrderService.java",
+      "containerSymbolId": null,
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 0
+        },
+        "end": {
+          "line": 14,
+          "character": 1
+        }
+      },
+      "selectionRange": {
+        "start": {
+          "line": 0,
+          "character": 4
+        },
+        "end": {
+          "line": 0,
+          "character": 16
+        }
+      },
+      "modifiers": [
+        "public"
+      ]
+    },
+    {
+      "id": "java:demo.service.OrderService#createOrder(int)",
+      "language": "java",
+      "kind": "method",
+      "name": "createOrder",
+      "qualifiedName": "demo.service.OrderService.createOrder",
+      "signature": "createOrder(int)",
+      "fileId": "file:src/main/java/demo/service/OrderService.java",
+      "containerSymbolId": "java:demo.service.OrderService",
+      "range": {
+        "start": {
+          "line": 3,
+          "character": 0
+        },
+        "end": {
+          "line": 12,
+          "character": 1
+        }
+      },
+      "selectionRange": {
+        "start": {
+          "line": 3,
+          "character": 4
+        },
+        "end": {
+          "line": 3,
+          "character": 15
+        }
+      },
+      "bodyRange": {
+        "start": {
+          "line": 4,
+          "character": 0
+        },
+        "end": {
+          "line": 11,
+          "character": 1
+        }
+      },
+      "modifiers": [
+        "public"
+      ]
+    },
+    {
+      "id": "java:demo.payment.PaymentService",
+      "language": "java",
+      "kind": "interface",
+      "name": "PaymentService",
+      "qualifiedName": "demo.payment.PaymentService",
+      "fileId": "file:src/main/java/demo/payment/PaymentService.java",
+      "containerSymbolId": null,
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 0
+        },
+        "end": {
+          "line": 4,
+          "character": 1
+        }
+      },
+      "selectionRange": {
+        "start": {
+          "line": 0,
+          "character": 4
+        },
+        "end": {
+          "line": 0,
+          "character": 18
+        }
+      },
+      "modifiers": [
+        "public"
+      ]
+    },
+    {
+      "id": "java:demo.payment.PaymentService#pay(int)",
+      "language": "java",
+      "kind": "method",
+      "name": "pay",
+      "qualifiedName": "demo.payment.PaymentService.pay",
+      "signature": "pay(int)",
+      "fileId": "file:src/main/java/demo/payment/PaymentService.java",
+      "containerSymbolId": "java:demo.payment.PaymentService",
+      "range": {
+        "start": {
+          "line": 2,
+          "character": 0
+        },
+        "end": {
+          "line": 3,
+          "character": 1
+        }
+      },
+      "selectionRange": {
+        "start": {
+          "line": 2,
+          "character": 4
+        },
+        "end": {
+          "line": 2,
+          "character": 7
+        }
+      },
+      "bodyRange": {
+        "start": {
+          "line": 3,
+          "character": 0
+        },
+        "end": {
+          "line": 2,
+          "character": 1
+        }
+      },
+      "modifiers": [
+        "public",
+        "abstract"
+      ]
+    },
+    {
+      "id": "java:demo.payment.WechatPaymentService",
+      "language": "java",
+      "kind": "class",
+      "name": "WechatPaymentService",
+      "qualifiedName": "demo.payment.WechatPaymentService",
+      "fileId": "file:src/main/java/demo/payment/WechatPaymentService.java",
+      "containerSymbolId": null,
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 0
+        },
+        "end": {
+          "line": 6,
+          "character": 1
+        }
+      },
+      "selectionRange": {
+        "start": {
+          "line": 0,
+          "character": 4
+        },
+        "end": {
+          "line": 0,
+          "character": 24
+        }
+      },
+      "modifiers": [
+        "public"
+      ]
+    },
+    {
+      "id": "java:demo.payment.WechatPaymentService#pay(int)",
+      "language": "java",
+      "kind": "method",
+      "name": "pay",
+      "qualifiedName": "demo.payment.WechatPaymentService.pay",
+      "signature": "pay(int)",
+      "fileId": "file:src/main/java/demo/payment/WechatPaymentService.java",
+      "containerSymbolId": "java:demo.payment.WechatPaymentService",
+      "range": {
+        "start": {
+          "line": 3,
+          "character": 0
+        },
+        "end": {
+          "line": 5,
+          "character": 1
+        }
+      },
+      "selectionRange": {
+        "start": {
+          "line": 3,
+          "character": 4
+        },
+        "end": {
+          "line": 3,
+          "character": 7
+        }
+      },
+      "bodyRange": {
+        "start": {
+          "line": 4,
+          "character": 0
+        },
+        "end": {
+          "line": 4,
+          "character": 1
+        }
+      },
+      "modifiers": [
+        "public"
+      ]
+    },
+    {
+      "id": "java:demo.payment.AlipayPaymentService",
+      "language": "java",
+      "kind": "class",
+      "name": "AlipayPaymentService",
+      "qualifiedName": "demo.payment.AlipayPaymentService",
+      "fileId": "file:src/main/java/demo/payment/AlipayPaymentService.java",
+      "containerSymbolId": null,
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 0
+        },
+        "end": {
+          "line": 6,
+          "character": 1
+        }
+      },
+      "selectionRange": {
+        "start": {
+          "line": 0,
+          "character": 4
+        },
+        "end": {
+          "line": 0,
+          "character": 24
+        }
+      },
+      "modifiers": [
+        "public"
+      ]
+    },
+    {
+      "id": "java:demo.payment.AlipayPaymentService#pay(int)",
+      "language": "java",
+      "kind": "method",
+      "name": "pay",
+      "qualifiedName": "demo.payment.AlipayPaymentService.pay",
+      "signature": "pay(int)",
+      "fileId": "file:src/main/java/demo/payment/AlipayPaymentService.java",
+      "containerSymbolId": "java:demo.payment.AlipayPaymentService",
+      "range": {
+        "start": {
+          "line": 3,
+          "character": 0
+        },
+        "end": {
+          "line": 5,
+          "character": 1
+        }
+      },
+      "selectionRange": {
+        "start": {
+          "line": 3,
+          "character": 4
+        },
+        "end": {
+          "line": 3,
+          "character": 7
+        }
+      },
+      "bodyRange": {
+        "start": {
+          "line": 4,
+          "character": 0
+        },
+        "end": {
+          "line": 4,
+          "character": 1
+        }
+      },
+      "modifiers": [
+        "public"
+      ]
+    },
+    {
+      "id": "java:demo.repo.OrderRepository",
+      "language": "java",
+      "kind": "interface",
+      "name": "OrderRepository",
+      "qualifiedName": "demo.repo.OrderRepository",
+      "fileId": "file:src/main/java/demo/repo/OrderRepository.java",
+      "containerSymbolId": null,
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 0
+        },
+        "end": {
+          "line": 6,
+          "character": 1
+        }
+      },
+      "selectionRange": {
+        "start": {
+          "line": 0,
+          "character": 4
+        },
+        "end": {
+          "line": 0,
+          "character": 19
+        }
+      },
+      "modifiers": [
+        "public"
+      ]
+    },
+    {
+      "id": "java:demo.repo.OrderRepository#save(int)",
+      "language": "java",
+      "kind": "method",
+      "name": "save",
+      "qualifiedName": "demo.repo.OrderRepository.save",
+      "signature": "save(int)",
+      "fileId": "file:src/main/java/demo/repo/OrderRepository.java",
+      "containerSymbolId": "java:demo.repo.OrderRepository",
+      "range": {
+        "start": {
+          "line": 2,
+          "character": 0
+        },
+        "end": {
+          "line": 3,
+          "character": 1
+        }
+      },
+      "selectionRange": {
+        "start": {
+          "line": 2,
+          "character": 4
+        },
+        "end": {
+          "line": 2,
+          "character": 8
+        }
+      },
+      "bodyRange": {
+        "start": {
+          "line": 3,
+          "character": 0
+        },
+        "end": {
+          "line": 2,
+          "character": 1
+        }
+      },
+      "modifiers": [
+        "public",
+        "abstract"
+      ]
+    },
+    {
+      "id": "java:demo.repo.OrderRepository#save(java.lang.String)",
+      "language": "java",
+      "kind": "method",
+      "name": "save",
+      "qualifiedName": "demo.repo.OrderRepository.save",
+      "signature": "save(java.lang.String)",
+      "fileId": "file:src/main/java/demo/repo/OrderRepository.java",
+      "containerSymbolId": "java:demo.repo.OrderRepository",
+      "range": {
+        "start": {
+          "line": 4,
+          "character": 0
+        },
+        "end": {
+          "line": 5,
+          "character": 1
+        }
+      },
+      "selectionRange": {
+        "start": {
+          "line": 4,
+          "character": 4
+        },
+        "end": {
+          "line": 4,
+          "character": 8
+        }
+      },
+      "bodyRange": {
+        "start": {
+          "line": 5,
+          "character": 0
+        },
+        "end": {
+          "line": 4,
+          "character": 1
+        }
+      },
+      "modifiers": [
+        "public",
+        "abstract"
+      ]
+    },
+    {
+      "id": "java:demo.repo.JdbcOrderRepository",
+      "language": "java",
+      "kind": "class",
+      "name": "JdbcOrderRepository",
+      "qualifiedName": "demo.repo.JdbcOrderRepository",
+      "fileId": "file:src/main/java/demo/repo/JdbcOrderRepository.java",
+      "containerSymbolId": null,
+      "range": {
+        "start": {
+          "line": 0,
+          "character": 0
+        },
+        "end": {
+          "line": 8,
+          "character": 1
+        }
+      },
+      "selectionRange": {
+        "start": {
+          "line": 0,
+          "character": 4
+        },
+        "end": {
+          "line": 0,
+          "character": 23
+        }
+      },
+      "modifiers": [
+        "public"
+      ]
+    },
+    {
+      "id": "java:demo.repo.JdbcOrderRepository#save(int)",
+      "language": "java",
+      "kind": "method",
+      "name": "save",
+      "qualifiedName": "demo.repo.JdbcOrderRepository.save",
+      "signature": "save(int)",
+      "fileId": "file:src/main/java/demo/repo/JdbcOrderRepository.java",
+      "containerSymbolId": "java:demo.repo.JdbcOrderRepository",
+      "range": {
+        "start": {
+          "line": 3,
+          "character": 0
+        },
+        "end": {
+          "line": 5,
+          "character": 1
+        }
+      },
+      "selectionRange": {
+        "start": {
+          "line": 3,
+          "character": 4
+        },
+        "end": {
+          "line": 3,
+          "character": 8
+        }
+      },
+      "bodyRange": {
+        "start": {
+          "line": 4,
+          "character": 0
+        },
+        "end": {
+          "line": 4,
+          "character": 1
+        }
+      },
+      "modifiers": [
+        "public"
+      ]
+    },
+    {
+      "id": "java:demo.repo.JdbcOrderRepository#save(java.lang.String)",
+      "language": "java",
+      "kind": "method",
+      "name": "save",
+      "qualifiedName": "demo.repo.JdbcOrderRepository.save",
+      "signature": "save(java.lang.String)",
+      "fileId": "file:src/main/java/demo/repo/JdbcOrderRepository.java",
+      "containerSymbolId": "java:demo.repo.JdbcOrderRepository",
+      "range": {
+        "start": {
+          "line": 6,
+          "character": 0
+        },
+        "end": {
+          "line": 8,
+          "character": 1
+        }
+      },
+      "selectionRange": {
+        "start": {
+          "line": 6,
+          "character": 4
+        },
+        "end": {
+          "line": 6,
+          "character": 8
+        }
+      },
+      "bodyRange": {
+        "start": {
+          "line": 7,
+          "character": 0
+        },
+        "end": {
+          "line": 7,
+          "character": 1
+        }
+      },
+      "modifiers": [
+        "public"
+      ]
+    }
+  ],
+  "relations": [
+    {
+      "id": "rel-wechat-implements",
+      "kind": "IMPLEMENTS",
+      "sourceSymbolId": "java:demo.payment.WechatPaymentService",
+      "targetSymbolId": "java:demo.payment.PaymentService"
+    },
+    {
+      "id": "rel-alipay-implements",
+      "kind": "IMPLEMENTS",
+      "sourceSymbolId": "java:demo.payment.AlipayPaymentService",
+      "targetSymbolId": "java:demo.payment.PaymentService"
+    },
+    {
+      "id": "rel-jdbc-implements",
+      "kind": "IMPLEMENTS",
+      "sourceSymbolId": "java:demo.repo.JdbcOrderRepository",
+      "targetSymbolId": "java:demo.repo.OrderRepository"
+    },
+    {
+      "id": "rel-wechat-overrides",
+      "kind": "OVERRIDES",
+      "sourceSymbolId": "java:demo.payment.WechatPaymentService#pay(int)",
+      "targetSymbolId": "java:demo.payment.PaymentService#pay(int)"
+    },
+    {
+      "id": "rel-alipay-overrides",
+      "kind": "OVERRIDES",
+      "sourceSymbolId": "java:demo.payment.AlipayPaymentService#pay(int)",
+      "targetSymbolId": "java:demo.payment.PaymentService#pay(int)"
+    },
+    {
+      "id": "rel-jdbc-save-int-overrides",
+      "kind": "OVERRIDES",
+      "sourceSymbolId": "java:demo.repo.JdbcOrderRepository#save(int)",
+      "targetSymbolId": "java:demo.repo.OrderRepository#save(int)"
+    },
+    {
+      "id": "rel-jdbc-save-string-overrides",
+      "kind": "OVERRIDES",
+      "sourceSymbolId": "java:demo.repo.JdbcOrderRepository#save(java.lang.String)",
+      "targetSymbolId": "java:demo.repo.OrderRepository#save(java.lang.String)"
+    }
+  ],
+  "callSites": [
+    {
+      "id": "call-submit-create",
+      "callerSymbolId": "java:demo.api.OrderController#submit(int)",
+      "enclosingSymbolId": null,
+      "fileId": "file:src/main/java/demo/api/OrderController.java",
+      "range": {
+        "start": {
+          "line": 4,
+          "character": 8
+        },
+        "end": {
+          "line": 4,
+          "character": 38
+        }
+      },
+      "selectionRange": {
+        "start": {
+          "line": 4,
+          "character": 24
+        },
+        "end": {
+          "line": 4,
+          "character": 34
+        }
+      },
+      "callKind": "METHOD_INVOCATION",
+      "target": {
+        "kind": "PROJECT_SYMBOL",
+        "symbolId": "java:demo.service.OrderService#createOrder(int)"
+      },
+      "dispatchMode": "VIRTUAL",
+      "dispatchCandidates": [],
+      "candidateCompleteness": "PROJECT_SCOPE_COMPLETE",
+      "lexicalContext": [
+        "METHOD_BODY"
+      ]
+    },
+    {
+      "id": "call-create-pay",
+      "callerSymbolId": "java:demo.service.OrderService#createOrder(int)",
+      "enclosingSymbolId": null,
+      "fileId": "file:src/main/java/demo/service/OrderService.java",
+      "range": {
+        "start": {
+          "line": 6,
+          "character": 8
+        },
+        "end": {
+          "line": 6,
+          "character": 38
+        }
+      },
+      "selectionRange": {
+        "start": {
+          "line": 6,
+          "character": 24
+        },
+        "end": {
+          "line": 6,
+          "character": 34
+        }
+      },
+      "callKind": "METHOD_INVOCATION",
+      "target": {
+        "kind": "PROJECT_SYMBOL",
+        "symbolId": "java:demo.payment.PaymentService#pay(int)"
+      },
+      "dispatchMode": "VIRTUAL",
+      "dispatchCandidates": [
+        {
+          "symbolId": "java:demo.payment.WechatPaymentService#pay(int)",
+          "basis": "IMPLEMENTS"
+        },
+        {
+          "symbolId": "java:demo.payment.AlipayPaymentService#pay(int)",
+          "basis": "IMPLEMENTS"
+        }
+      ],
+      "candidateCompleteness": "PROJECT_SCOPE_COMPLETE",
+      "lexicalContext": [
+        "METHOD_BODY"
+      ]
+    },
+    {
+      "id": "call-create-save-int",
+      "callerSymbolId": "java:demo.service.OrderService#createOrder(int)",
+      "enclosingSymbolId": null,
+      "fileId": "file:src/main/java/demo/service/OrderService.java",
+      "range": {
+        "start": {
+          "line": 8,
+          "character": 8
+        },
+        "end": {
+          "line": 8,
+          "character": 38
+        }
+      },
+      "selectionRange": {
+        "start": {
+          "line": 8,
+          "character": 24
+        },
+        "end": {
+          "line": 8,
+          "character": 34
+        }
+      },
+      "callKind": "METHOD_INVOCATION",
+      "target": {
+        "kind": "PROJECT_SYMBOL",
+        "symbolId": "java:demo.repo.OrderRepository#save(int)"
+      },
+      "dispatchMode": "VIRTUAL",
+      "dispatchCandidates": [
+        {
+          "symbolId": "java:demo.repo.JdbcOrderRepository#save(int)",
+          "basis": "IMPLEMENTS"
+        }
+      ],
+      "candidateCompleteness": "PROJECT_SCOPE_COMPLETE",
+      "lexicalContext": [
+        "METHOD_BODY"
+      ]
+    }
+  ],
+  "diagnostics": []
+}
