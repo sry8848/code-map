@@ -1,0 +1,651 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Code Map Project Index",
+  "description": "Language-neutral static index for a source-code project. Draft 0.1.0.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "project",
+    "modules",
+    "files",
+    "symbols",
+    "relations",
+    "callSites",
+    "diagnostics"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "0.1.0"
+    },
+    "project": {
+      "$ref": "#/$defs/project"
+    },
+    "modules": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/module"
+      }
+    },
+    "files": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/file"
+      }
+    },
+    "symbols": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/symbol"
+      }
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/relation"
+      }
+    },
+    "callSites": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/callSite"
+      }
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/diagnostic"
+      }
+    }
+  },
+  "$defs": {
+    "nonEmptyString": {
+      "type": "string",
+      "minLength": 1
+    },
+    "hash": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "position": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "line",
+        "character"
+      ],
+      "properties": {
+        "line": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "character": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "range": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "start",
+        "end"
+      ],
+      "properties": {
+        "start": {
+          "$ref": "#/$defs/position"
+        },
+        "end": {
+          "$ref": "#/$defs/position"
+        }
+      }
+    },
+    "revision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "value",
+        "dirty"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "git",
+            "other"
+          ]
+        },
+        "value": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "dirty": {
+          "type": "boolean"
+        }
+      }
+    },
+    "analyzer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version",
+        "language",
+        "configHash"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "version": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "language": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "configHash": {
+          "$ref": "#/$defs/hash"
+        }
+      }
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "revision",
+        "sourceSnapshotHash",
+        "analysisEnvironmentHash",
+        "generatedAt",
+        "analyzers"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "name": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "revision": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/revision"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sourceSnapshotHash": {
+          "$ref": "#/$defs/hash"
+        },
+        "analysisEnvironmentHash": {
+          "$ref": "#/$defs/hash"
+        },
+        "generatedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "analyzers": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/$defs/analyzer"
+          }
+        }
+      }
+    },
+    "module": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "name",
+        "path",
+        "buildSystem",
+        "parentModuleId",
+        "sourceRoots"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "name": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "path": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "buildSystem": {
+          "enum": [
+            "maven",
+            "gradle",
+            "bazel",
+            "sbt",
+            "other",
+            "none"
+          ]
+        },
+        "parentModuleId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "sourceRoots": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "file": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "path",
+        "language",
+        "contentHash",
+        "moduleId",
+        "isGenerated"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "path": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "language": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "contentHash": {
+          "$ref": "#/$defs/hash"
+        },
+        "moduleId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "isGenerated": {
+          "type": "boolean"
+        }
+      }
+    },
+    "symbol": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "language",
+        "kind",
+        "name",
+        "qualifiedName",
+        "fileId",
+        "containerSymbolId",
+        "range",
+        "selectionRange",
+        "modifiers"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "language": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "kind": {
+          "enum": [
+            "class",
+            "interface",
+            "enum",
+            "record",
+            "struct",
+            "trait",
+            "function",
+            "method",
+            "constructor",
+            "initializer",
+            "field",
+            "property",
+            "enum_constant"
+          ]
+        },
+        "name": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "qualifiedName": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "signature": {
+          "type": "string"
+        },
+        "fileId": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "containerSymbolId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "range": {
+          "$ref": "#/$defs/range"
+        },
+        "selectionRange": {
+          "$ref": "#/$defs/range"
+        },
+        "bodyRange": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/range"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "modifiers": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "relation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "kind",
+        "sourceSymbolId",
+        "targetSymbolId"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "kind": {
+          "enum": [
+            "EXTENDS",
+            "IMPLEMENTS",
+            "OVERRIDES"
+          ]
+        },
+        "sourceSymbolId": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "targetSymbolId": {
+          "$ref": "#/$defs/nonEmptyString"
+        }
+      }
+    },
+    "callTarget": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "symbolId"
+          ],
+          "properties": {
+            "kind": {
+              "const": "PROJECT_SYMBOL"
+            },
+            "symbolId": {
+              "$ref": "#/$defs/nonEmptyString"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "qualifiedName"
+          ],
+          "properties": {
+            "kind": {
+              "const": "EXTERNAL_SYMBOL"
+            },
+            "qualifiedName": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "signature": {
+              "type": "string"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "expressionText",
+            "reason"
+          ],
+          "properties": {
+            "kind": {
+              "const": "UNRESOLVED"
+            },
+            "expressionText": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "reason": {
+              "$ref": "#/$defs/nonEmptyString"
+            }
+          }
+        },
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "kind",
+            "expressionText",
+            "reason"
+          ],
+          "properties": {
+            "kind": {
+              "const": "DYNAMIC"
+            },
+            "expressionText": {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            "reason": {
+              "$ref": "#/$defs/nonEmptyString"
+            }
+          }
+        }
+      ]
+    },
+    "dispatchCandidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "symbolId",
+        "basis"
+      ],
+      "properties": {
+        "symbolId": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "basis": {
+          "enum": [
+            "IMPLEMENTS",
+            "OVERRIDES",
+            "INHERITED",
+            "CONFIGURATION",
+            "OTHER"
+          ]
+        }
+      }
+    },
+    "callSite": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "callerSymbolId",
+        "enclosingSymbolId",
+        "fileId",
+        "range",
+        "selectionRange",
+        "callKind",
+        "target",
+        "dispatchMode",
+        "dispatchCandidates",
+        "candidateCompleteness",
+        "lexicalContext"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "callerSymbolId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "enclosingSymbolId": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/nonEmptyString"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "fileId": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "range": {
+          "$ref": "#/$defs/range"
+        },
+        "selectionRange": {
+          "$ref": "#/$defs/range"
+        },
+        "callKind": {
+          "enum": [
+            "METHOD_INVOCATION",
+            "CONSTRUCTOR_INVOCATION",
+            "METHOD_REFERENCE",
+            "CONSTRUCTOR_REFERENCE",
+            "FUNCTION_CALL",
+            "DYNAMIC_INVOCATION"
+          ]
+        },
+        "target": {
+          "$ref": "#/$defs/callTarget"
+        },
+        "dispatchMode": {
+          "enum": [
+            "DIRECT",
+            "VIRTUAL",
+            "DYNAMIC",
+            "UNKNOWN"
+          ]
+        },
+        "dispatchCandidates": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/dispatchCandidate"
+          }
+        },
+        "candidateCompleteness": {
+          "enum": [
+            "PROJECT_SCOPE_COMPLETE",
+            "PARTIAL",
+            "NOT_APPLICABLE",
+            "UNKNOWN"
+          ]
+        },
+        "lexicalContext": {
+          "type": "array",
+          "items": {
+            "enum": [
+              "METHOD_BODY",
+              "LAMBDA_BODY",
+              "ANONYMOUS_CLASS_BODY",
+              "FIELD_INITIALIZER",
+              "STATIC_INITIALIZER",
+              "INSTANCE_INITIALIZER",
+              "OTHER"
+            ]
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "diagnostic": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "analyzerId",
+        "severity",
+        "code",
+        "message"
+      ],
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "analyzerId": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "severity": {
+          "enum": [
+            "INFO",
+            "WARNING",
+            "ERROR"
+          ]
+        },
+        "code": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "message": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "fileId": {
+          "$ref": "#/$defs/nonEmptyString"
+        },
+        "range": {
+          "$ref": "#/$defs/range"
+        },
+        "relatedSymbolIds": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/nonEmptyString"
+          },
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}
